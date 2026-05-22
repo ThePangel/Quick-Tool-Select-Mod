@@ -1,38 +1,47 @@
 {
-	"schemaVersion": 1,
-	"id": "quicktoolselect",
-	"version": "${version}",
-	"name": "QuickToolSelect",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/quicktoolselect/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"quicktoolselect.thepangel.QuickToolSelect"
-		],
-		"client": [
-			"quicktoolselect.thepangel.client.QuickToolSelectClient"
-		]
-	},
-	"mixins": [
-		"quicktoolselect.mixins.json",
-		{
-			"config": "quicktoolselect.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.19.2",
-		"minecraft": "~26.1.2",
-		"java": ">=25",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "quicktoolselect",
+  "version": "${version}",
+  "name": "QuickToolSelect",
+  "description": "Allows for quick selection of an appropriate tool for the job just by holding the scroll wheel!",
+  "authors": [
+    {
+      "name": "ThePangel",
+      "contact": {
+        "sources": "https://github.com/ThePangel"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/project/quick-tool-select/",
+    "sources": "https://github.com/ThePangel/Quick-Tool-Select-Mod",
+    "issues": "https://github.com/ThePangel/Quick-Tool-Select-Mod/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/quicktoolselect/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "quicktoolselect.thepangel.client.QuickToolSelectClient"
+    ],
+    "modmenu": [
+      "quicktoolselect.thepangel.client.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "quicktoolselect.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "minecraft": "~26.1.2",
+    "java": ">=25",
+    "fabric-api": "*",
+    "yet_another_config_lib_v3": "3.9.3+26.1-fabric"
+  },
+  "suggests": {
+    "modmenu": "18.0.0-beta.1"
+  }
 }
