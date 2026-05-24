@@ -1,4 +1,4 @@
-package quicktoolselect.thepangel.client.mixin;
+package quicktoolselect.thepangel.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import quicktoolselect.thepangel.client.Config;
-import quicktoolselect.thepangel.client.StateManager;
+import quicktoolselect.thepangel.Config;
+import quicktoolselect.thepangel.StateManager;
 
 // We Hijack handleKeybinds to add our hold middle mouse button logic.
 @Mixin(Minecraft.class)
@@ -26,7 +26,6 @@ public class QuickToolInputMixin {
     @Inject(at = @At("HEAD"), method = "handleKeybinds")
 
     private void handleKeybinds(CallbackInfo ci) {
-
         // This handles the release of the middle mouse button
         if (!this.options.keyPickItem.isDown()) {
 

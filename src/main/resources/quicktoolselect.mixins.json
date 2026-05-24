@@ -1,14 +1,15 @@
 {
-	"required": true,
-	"package": "quicktoolselect.thepangel.mixin",
-	"compatibilityLevel": "JAVA_25",
-	"mixins": [
-
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "quicktoolselect.thepangel.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "QuickToolInputMixin",
+    "QuickToolSwitchMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
 }

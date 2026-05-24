@@ -1,4 +1,4 @@
-package quicktoolselect.thepangel.client;
+package quicktoolselect.thepangel;
 
 // Pretty self explanatory.
 public class StateManager {

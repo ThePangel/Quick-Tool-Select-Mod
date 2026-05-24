@@ -1,5 +1,8 @@
-package quicktoolselect.thepangel.client.mixin;
+package quicktoolselect.thepangel.mixin;
 
+
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.core.BlockPos;
@@ -17,7 +20,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import quicktoolselect.thepangel.client.StateManager;
+import quicktoolselect.thepangel.StateManager;
 
 // We hijack the function that handles the block pick up/switch when middle mouse clicking in vanilla, makes our job easer since it already gives us the BlocPos
 @Mixin(MultiPlayerGameMode.class)
@@ -31,7 +34,9 @@ public class QuickToolSwitchMixin {
 
     @Inject(at = @At("HEAD"), method = "handlePickItemFromBlock", cancellable = true)
     private void handlePickItemFromBlock(BlockPos pos, boolean includeData, CallbackInfo ci) {
-
+        if(FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) {
+            return;
+        }
         if (StateManager.selectBreak) {
             if (minecraft.level == null || minecraft.player == null || minecraft.gameMode == null) {
                 ci.cancel();

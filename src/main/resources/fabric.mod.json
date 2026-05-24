@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "quicktoolselect",
+  "id": "${id}",
   "version": "${version}",
-  "name": "QuickToolSelect",
+  "name": "${name}",
   "description": "Allows for quick selection of an appropriate tool for the job just by holding the scroll wheel!",
   "authors": [
     {
@@ -21,27 +21,27 @@
   "icon": "assets/quicktoolselect/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "quicktoolselect.thepangel.client.QuickToolSelectClient"
+    "main": [
+      "quicktoolselect.thepangel.QuickToolSelect"
     ],
     "modmenu": [
-      "quicktoolselect.thepangel.client.ModMenuIntegration"
+      "quicktoolselect.thepangel.ModMenuIntegration"
     ]
   },
   "mixins": [
     {
-      "config": "quicktoolselect.client.mixins.json",
+      "config": "quicktoolselect.mixins.json",
       "environment": "client"
     }
   ],
   "depends": {
     "fabricloader": ">=0.19.2",
-    "minecraft": "~26.1.2",
+    "minecraft": "${minecraft}",
     "java": ">=25",
-    "fabric-api": "*",
-    "yet_another_config_lib_v3": "3.9.3+26.1-fabric"
+    "fabric-api": "*"
   },
   "suggests": {
-    "modmenu": "18.0.0-beta.1"
+    "yet_another_config_lib_v3": "${yacl}",
+    "modmenu": "${modmenu}"
   }
 }
