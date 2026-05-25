@@ -37,6 +37,9 @@ repositories {
         }
         strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
     }
+    maven ("https://maven.isxander.dev/releases") {
+        name = "XanderMaven"
+    }
 }
 
 dependencies {
@@ -51,15 +54,23 @@ dependencies {
     loomx.applyMojangMappings()
 
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-    modImplementation(fabricApi.module("fabric-command-api-v2", "${property("deps.fabric_api")}"))
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
     if (!project.name.contains("barebones")) {
         modImplementation("maven.modrinth:modmenu:${property("deps.modmenu")}")
-        modImplementation("maven.modrinth:yacl:${property("deps.yacl")}")
+        modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
+
     }
 
 }
 
 loom {
+
+    if (project.name.contains("1.21.1")) {
+        interfaceInjection {
+            enableDependencyInterfaceInjection = false
+        }
+    }
+
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json") // Useful for interface injection
     accessWidenerPath = sc.process(
         rootProject.file("src/main/resources/template.ct"),

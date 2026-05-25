@@ -7,13 +7,22 @@ mod.version = "1.0.0"
 deps.fabric_loader = "0.19.2"
 loomx.loom_version = "1.16-SNAPSHOT"
 
+["1.20.1"]
+mod.mc_compat = ">=1.20 <=1.20.1"
+mod.mc_releases = ["1.20", "1.20.1"]
+
+deps.fabric_api = "0.92.9+1.20.1"
+
+deps.yacl = "3.6.6+1.20.1-fabric"
+deps.modmenu = "7.2.2"
+
 ["1.21.1"]
 mod.mc_compat = ">=1.21 <=1.21.1"
 mod.mc_releases = ["1.21", "1.21.1"]
 
-deps.fabric_api = "0.116.10+1.21.1"
+deps.fabric_api = "0.116.12+1.21.1"
 
-deps.yacl = "3.8.2+1.21.10-fabric"
+deps.yacl = "3.8.2+1.21.1-fabric"
 deps.modmenu = "11.0.4"
 
 
@@ -21,7 +30,7 @@ deps.modmenu = "11.0.4"
 mod.mc_compat = "1.21.11"
 mod.mc_releases = ["1.21.11"]
 
-deps.fabric_api = "0.141.3+1.21.11"
+deps.fabric_api = "0.141.4+1.21.11"
 
 deps.yacl = "3.8.2+1.21.11-fabric"
 deps.modmenu = "17.0.0"
@@ -34,6 +43,15 @@ deps.fabric_api = "0.145.3+26.1.1"
 
 deps.yacl = "3.9.3+26.1-fabric"
 deps.modmenu = "18.0.0-beta.1"
+
+["1.20.1-barebones"]
+mod.mc_compat = ">=1.20 <=1.20.1"
+mod.mc_releases = ["1.20", "1.20.1"]
+
+deps.fabric_api = "0.92.9+1.20.1"
+
+deps.yacl = "3.6.6+1.20.1-fabric"
+deps.modmenu = "7.2.2"
 
 ["1.21.1-barebones"]
 mod.mc_compat = ">=1.21 <=1.21.1"

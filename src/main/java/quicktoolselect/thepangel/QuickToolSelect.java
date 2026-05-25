@@ -1,8 +1,12 @@
 package quicktoolselect.thepangel;
 
-//? !bare_bones {
+//? !bare_bones && ~26.1  {
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
+//?}
+//? !bare_bones && !~26.1 {
+//import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+//import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 //?}
 
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +23,12 @@ public class QuickToolSelect implements ModInitializer {
         //? !bare_bones  {
         // If the user for some reason doesn't have mod menu this command will open the settings screen
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            //? 1.21.1 || 1.21.11 || 1.20.1{
+            /*dispatcher.register(ClientCommandManager.literal("quicktool")
+            *///?}
+            //?  ~26.1 {
             dispatcher.register(ClientCommands.literal("quicktool")
+            //?}
                     .executes(context -> {
                         context.getSource().getClient().execute(() -> {
                             context.getSource().getClient().setScreen(quicktoolselect.thepangel.Config.createScreen(null));

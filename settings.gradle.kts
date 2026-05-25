@@ -31,6 +31,7 @@ gradle.beforeProject {
 stonecutter {
     create(rootProject) {
         versions(
+            "1.20.1",
             "1.21.1",
             "1.21.11",
             "26.1",
@@ -48,6 +49,10 @@ stonecutter {
         version(
             "1.21.11-barebones",
             "1.21.11"
+        )
+        version(
+            "1.20.1-barebones",
+            "1.20.1"
         )
         vcsVersion = "26.1"
 

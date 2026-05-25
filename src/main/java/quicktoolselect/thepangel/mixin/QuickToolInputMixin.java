@@ -18,10 +18,15 @@ public class QuickToolInputMixin {
     @Final
     @Shadow
     public Options options;
-
+    //? ~26.1 {
     @Shadow
     private void pickBlockOrEntity() {
     }
+    //?} else {
+    /*@Shadow
+    private void pickBlock() {
+    }
+    *///?}
 
     @Inject(at = @At("HEAD"), method = "handleKeybinds")
 
@@ -33,8 +38,11 @@ public class QuickToolInputMixin {
 
                 StateManager.tick_count = 0;
                 StateManager.selectBreak = false;
-
+                //? ~26.1 {
                 this.pickBlockOrEntity();
+                //?} else  {
+                 /*this.pickBlock();
+                *///?}
             }
 
             StateManager.tick_count = 0;
@@ -53,7 +61,11 @@ public class QuickToolInputMixin {
                 StateManager.tick_count = 0;
                 StateManager.selectBreak = true;
 
+                //? ~26.1 {
                 this.pickBlockOrEntity();
+                //?} else  {
+                 /*this.pickBlock();
+                *///?}
             }
             // Took me a while to figure this out, we consume the click or else it will stay in queue and run the vanilla action after ours
             this.options.keyPickItem.consumeClick();
