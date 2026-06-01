@@ -2,7 +2,7 @@
 mod.id = "quicktoolselect"
 mod.name = "QuickToolSelect"
 mod.group = "quicktoolselect.thepangel"
-mod.version = "1.0.0"
+mod.version = "1.0.1"
 
 deps.fabric_loader = "0.19.2"
 loomx.loom_version = "1.16-SNAPSHOT"

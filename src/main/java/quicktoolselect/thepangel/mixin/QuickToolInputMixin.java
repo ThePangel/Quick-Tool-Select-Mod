@@ -31,6 +31,13 @@ public class QuickToolInputMixin {
     @Inject(at = @At("HEAD"), method = "handleKeybinds")
 
     private void handleKeybinds(CallbackInfo ci) {
+        //? !bare_bones {
+        Config instance = Config.HANDLER.instance();
+        int holdTime = instance.holdTime;
+        //?} else {
+        //int holdTime = Config.holdTime;
+        //?}
+
         // This handles the release of the middle mouse button
         if (!this.options.keyPickItem.isDown()) {
 
@@ -56,7 +63,7 @@ public class QuickToolInputMixin {
                 StateManager.tick_count++;
             }
 
-            if (StateManager.tick_count >= Config.holdTime) {
+            if (StateManager.tick_count >= holdTime) {
 
                 StateManager.tick_count = 0;
                 StateManager.selectBreak = true;

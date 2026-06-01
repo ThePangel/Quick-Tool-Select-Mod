@@ -21,6 +21,9 @@ public class QuickToolSelect implements ModInitializer {
     @Override
     public void onInitialize() {
         //? !bare_bones  {
+
+        Config.HANDLER.load();
+
         // If the user for some reason doesn't have mod menu this command will open the settings screen
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             //? 1.21.1 || 1.21.11 || 1.20.1{
