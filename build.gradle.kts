@@ -3,13 +3,8 @@ plugins {
     id("dev.kikugie.loom-back-compat")
 }
 
-// DO NOT set group = ...!
-if (!project.name.contains("barebones")) {
+version = "${property("mod.version")}+${sc.current.version}"
 
-    version = "${property("mod.version")}+${sc.current.version}"
-} else {
-    version = "barebones-${property("mod.version")}+${sc.current.version}"
-}
 base.archivesName = property("mod.id") as String
 
 val requiredJava: JavaVersion = when {
@@ -29,14 +24,14 @@ repositories {
      * Restricts dependency search of the given [groups] to the [maven URL][url],
      * improving the setup speed.
      */
-    if (!project.name.contains("barebones")) {
 
-        fun strictMaven(url: String, alias: String, vararg groups: String) = exclusiveContent {
-            forRepository { maven(url) { name = alias } }
-            filter { groups.forEach(::includeGroup) }
-        }
-        strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+
+    fun strictMaven(url: String, alias: String, vararg groups: String) = exclusiveContent {
+        forRepository { maven(url) { name = alias } }
+        filter { groups.forEach(::includeGroup) }
     }
+    strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+
     maven ("https://maven.isxander.dev/releases") {
         name = "XanderMaven"
     }
@@ -55,11 +50,8 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
-    if (!project.name.contains("barebones")) {
-        modImplementation("maven.modrinth:modmenu:${property("deps.modmenu")}")
-        modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
-
-    }
+    modImplementation("maven.modrinth:modmenu:${property("deps.modmenu")}")
+    modImplementation("dev.isxander:yet-another-config-lib:${property("deps.yacl")}")
 
 }
 

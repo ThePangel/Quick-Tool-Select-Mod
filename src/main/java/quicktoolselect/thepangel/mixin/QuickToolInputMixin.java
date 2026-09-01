@@ -18,7 +18,7 @@ public class QuickToolInputMixin {
     @Final
     @Shadow
     public Options options;
-    //? ~26.1 {
+    //? >=26.0 <27.0 {
     @Shadow
     private void pickBlockOrEntity() {
     }
@@ -31,12 +31,10 @@ public class QuickToolInputMixin {
     @Inject(at = @At("HEAD"), method = "handleKeybinds")
 
     private void handleKeybinds(CallbackInfo ci) {
-        //? !bare_bones {
+
         Config instance = Config.HANDLER.instance();
         int holdTime = instance.holdTime;
-        //?} else {
-        //int holdTime = Config.holdTime;
-        //?}
+
 
         // This handles the release of the middle mouse button
         if (!this.options.keyPickItem.isDown()) {
@@ -45,7 +43,7 @@ public class QuickToolInputMixin {
 
                 StateManager.tick_count = 0;
                 StateManager.selectBreak = false;
-                //? ~26.1 {
+                //? >=26.0 <27.0 {
                 this.pickBlockOrEntity();
                 //?} else  {
                  /*this.pickBlock();
@@ -68,7 +66,7 @@ public class QuickToolInputMixin {
                 StateManager.tick_count = 0;
                 StateManager.selectBreak = true;
 
-                //? ~26.1 {
+                //? >=26.0 <27.0 {
                 this.pickBlockOrEntity();
                 //?} else  {
                  /*this.pickBlock();

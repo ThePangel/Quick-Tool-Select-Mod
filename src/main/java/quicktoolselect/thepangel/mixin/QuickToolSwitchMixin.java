@@ -31,7 +31,7 @@ import org.spongepowered.asm.mixin.Shadow;
 */
 //?}
 
-//? ~26.1 {
+//? >=26.0 <27.0 {
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Final;
 import net.minecraft.world.inventory.ContainerInput;
@@ -153,7 +153,7 @@ public class QuickToolSwitchMixin {
             //minecraft.gameMode.handleInventoryMouseClick(minecraft.player.containerMenu.containerId, swapToolSlot, minecraft.player.getInventory().getSelectedSlot(), ClickType.SWAP, minecraft.player);
             //?}
 
-            //? ~26.1 {
+            //? >=26.0 <27.0 {
             minecraft.gameMode.handleContainerInput(minecraft.player.containerMenu.containerId, swapToolSlot, minecraft.player.getInventory().getSelectedSlot(), ContainerInput.SWAP, minecraft.player);
             //?}
             // We have to cancel the vanilla process or else we will pick up the block after our tool swap

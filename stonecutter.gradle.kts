@@ -4,11 +4,10 @@ plugins {
 }
 
 
-stonecutter active "26.1"
+stonecutter active "26.2"
 
 // See https://stonecutter.kikugie.dev/wiki/config/params
 stonecutter parameters {
-    constants["bare_bones"] = node.project.name.contains("barebones")
     swaps["mod_version"] = "\"${property("mod.version")}\";"
     swaps["minecraft"] = "\"${node.metadata.version}\";"
     constants["release"] = property("mod.id") != "template"

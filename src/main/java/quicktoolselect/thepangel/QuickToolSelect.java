@@ -1,10 +1,10 @@
 package quicktoolselect.thepangel;
 
-//? !bare_bones && ~26.1  {
+//? >=26.0 <27.0 {
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 //?}
-//? !bare_bones && !~26.1 {
+//? !(>=26.0 <27.0) {
 //import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 //import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 //?}
@@ -20,7 +20,7 @@ public class QuickToolSelect implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        //? !bare_bones  {
+
 
         Config.HANDLER.load();
 
@@ -29,18 +29,24 @@ public class QuickToolSelect implements ModInitializer {
             //? 1.21.1 || 1.21.11 || 1.20.1{
             /*dispatcher.register(ClientCommandManager.literal("quicktool")
             *///?}
-            //?  ~26.1 {
+            //?  >=26.0 <27.0 {
             dispatcher.register(ClientCommands.literal("quicktool")
             //?}
                     .executes(context -> {
                         context.getSource().getClient().execute(() -> {
-                            context.getSource().getClient().setScreen(quicktoolselect.thepangel.Config.createScreen(null));
+                            //? ~26.2 {
+                            context.getSource().getClient().setScreenAndShow(Config.createScreen(null));
+                            //?}
+                            //? <= 26.1 {
+                            /*context.getSource().getClient().setScreen(quicktoolselect.thepangel.Config.createScreen(null));
+                            *///?}
                         });
+
                         return 1;
                     })
             );
         });
-        //?}
+
         LOGGER.info("Quick Tool Select Initialized!");
 
     }

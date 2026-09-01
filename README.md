@@ -34,12 +34,6 @@ Not much to configure, but for those who don't like the time to hold you can cha
 
 If you don't have ModMenu installed you can run ```/quicktool``` and that will open the config window.
 
-## Versions
-
--   Default version: Uses YACL and ModMenu (optional) to be able to configure hold time.
-
--   `barebones`: Doesn't require any dependencies, but has a default hardcoded hold time of 10 ticks.
-
 ## License
 
 This project is available under the **GNU GPLv3** license. Feel free to learn from it and incorporate it into your own projects under its conditions!

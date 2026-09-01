@@ -35,26 +35,30 @@ stonecutter {
             "1.21.1",
             "1.21.11",
             "26.1",
+            "26.2"
 
 
             )
         version(
-            "26.1-barebones",
+            "26.2"
+        )
+        version(
+
             "26.1"
         )
         version(
-            "1.21.1-barebones",
+
             "1.21.1"
         )
         version(
-            "1.21.11-barebones",
+
             "1.21.11"
         )
         version(
-            "1.20.1-barebones",
+
             "1.20.1"
         )
-        vcsVersion = "26.1"
+        vcsVersion = "26.2"
 
     }
 

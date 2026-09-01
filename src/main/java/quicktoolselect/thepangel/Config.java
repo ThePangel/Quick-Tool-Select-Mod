@@ -1,7 +1,7 @@
 package quicktoolselect.thepangel;
 
 
-//? !bare_bones {
+
 
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
@@ -18,13 +18,13 @@ import net.minecraft.resources.Identifier;
 //? 1.20.1 {
 //import net.minecraft.resources.ResourceLocation;
 //?}
-//?}
+
 
 // Handling YACL config menu
 public class Config {
 
 
-    //? !bare_bones {
+
     @SerialEntry
     public int holdTime = 10;
 
@@ -67,8 +67,6 @@ public class Config {
                 .build()
                 .generateScreen(parentScreen);
     }
-    //?} else {
-    //public static int holdTime = 5;
-    //?}
+
 }
 
